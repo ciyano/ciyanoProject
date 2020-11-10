@@ -29,4 +29,18 @@ public class SecurityWeb {
         userObj = service.saveUser(user);
         return userObj;
     }
+    @PostMapping("/login")
+    public User loginUser(@RequestBody User user) throws Exception{
+        String tempEmailId = user.getEmailId();
+        String tempPass = user.getPassword();
+        User userObj = null;
+        if (tempEmailId !=null && tempPass != null) {
+            userObj =  service.fetchUserByEmailIdAndPass(tempEmailId, tempPass);
+        }
+   if(userObj == null){
+       throw new Exception("bad credentials");
+   }
+           return userObj;
+    }
+
 }
