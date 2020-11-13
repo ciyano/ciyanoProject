@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-/*@CrossOrigin(origins = "http://localhost:4200")*/
+
 public class SecurityWeb {
 
     @Autowired
@@ -15,7 +15,7 @@ public class SecurityWeb {
 
 
     @PostMapping("/saveUser")
-    @ResponseBody
+    @CrossOrigin(origins = "http://localhost:4200")
     public User registerUser(@RequestBody User user) throws Exception {
         String tempEmailId = user.getEmailId();
         if (tempEmailId != null && "".equals(tempEmailId)) {
@@ -30,6 +30,7 @@ public class SecurityWeb {
         return userObj;
     }
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:4200")
     public User loginUser(@RequestBody User user) throws Exception{
         String tempEmailId = user.getEmailId();
         String tempPass = user.getPassword();
