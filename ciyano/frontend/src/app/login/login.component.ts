@@ -29,4 +29,8 @@ this._router.navigate(['/loginsucces'])
 }
 )
 }
+
+gotoregistration(){
+this._router.navigate(['/registration']);
+}
 }

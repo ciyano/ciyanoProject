@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import{FormsModule} from '@angular/forms';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { LoginsuccesComponent } from './loginsucces/loginsucces.component';
 @NgModule({
   declarations: [
@@ -19,11 +19,11 @@ import { LoginsuccesComponent } from './loginsucces/loginsucces.component';
     BrowserModule,
     FormsModule,
     FormsModule,
-    HttpClient,
+    
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HttpClientModule,HttpClient],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
