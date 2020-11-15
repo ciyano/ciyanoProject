@@ -4,7 +4,7 @@
 <div class="container"  style="max-width: 600px; background-color:white">
   <h2  class="textual">User registration</h2>
     <form  #registerForm="ngForm" (ngSubmit)="registerUser()">
-        <small [class.text-danger]="msg.status==500">{{msg.message}}</small>
+        <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
     <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" class="form-control" name="email" [(ngModel)]="user.emailId" required pattern="^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$"
@@ -40,11 +40,8 @@
 
       <div class="form-group">
         <label for="pwd">confirm Password:</label>
-        <input type="password" class="form-control" name="cpassword" [(ngModel)]="user.password" required  #cpassword="ngModel"
-        [class.is-invalid]="password.invalid && cpassword.touched"
-    
-    
-        >
+        <input type="password" class="form-control" name="cpassword" (ngModel)="user.password" required  #cpassword="ngModel"
+        [class.is-invalid]="password.invalid && cpassword.touched">
         <small class="text-danger"  [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">password & confime must be the same</small>
     
       </div>
